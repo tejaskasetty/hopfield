@@ -1,0 +1,3 @@
+from .hopfield import HopfieldNet
+from .small_world_hopfield_network import SmallWorldHopfieldNet
+from .small_world import SmallWorldHopfieldNet as MiniHopfieldNet

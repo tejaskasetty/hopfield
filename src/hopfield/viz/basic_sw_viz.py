@@ -1,19 +1,22 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from hopfield_network import HopfieldNetwork
+from model import SmallWorldHopfieldNetwork
 
 # Define parameters
 n = 100  # Number of neurons
 num_memories = 5  # Number of memories to store
 num_steps = 20  # Number of steps to run
 noise_level = 0.2  # Level of random noise to add to initial pattern
+p = 0.2  # Probability of adding random connections
+k = 10  # Number of nearest neighbors to connect
 
 # Generate random binary memories
 memories = np.random.randint(2, size=(num_memories, n))
 
 # Initialize network and train on memories
-network = HopfieldNetwork(n)
+network = SmallWorldHopfieldNetwork(n, p=p, k=k)
 network.train(memories)
+network.apply_small_world_topology()
 
 # Generate initial pattern with added noise
 pattern = memories[0]
