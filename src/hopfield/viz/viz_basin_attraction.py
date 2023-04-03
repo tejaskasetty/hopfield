@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from hopfield_network import HopfieldNetwork
+from model import HopfieldNetwork
 
 # Generate a Hopfield network with 3 attractor states
 patterns = np.array([[1, 1, -1, -1], [-1, -1, 1, 1], [1, -1, 1, -1]])

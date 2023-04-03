@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from hopfield_network import HopfieldNetwork
+from model import SmallWorldHopfieldNetwork
 
 # Define experiment parameters
 n = 100  # Number of neurons
@@ -34,7 +34,7 @@ for num_memories in num_memories_list:
             # Train network on random subset of memories
             indices = np.random.choice(num_memories, size=num_memories, replace=False)
             subset_memories = memories[indices]
-            network = HopfieldNetwork(n)
+            network = SmallWorldHopfieldNetwork(n)
             network.train(subset_memories)
             network.apply_small_world_topology(k=k, max_hops=2, clustering_prob=0.5)
 
@@ -56,7 +56,7 @@ for num_memories in num_memories_list:
 # Add plot labels and legend
 plt.xlabel('Sparsity level')
 plt.ylabel('Recall rate')
-plt.title('Hopfield network performance with varying sparsity and number of memories')
+plt.title('Small-world Hopfield network performance with varying sparsity and number of memories')
 plt.legend()
 
 # Show plot

@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from small_world_hopfield_network import SmallWorldHopfieldNetwork
+from model import SmallWorldHopfieldNetwork
 
 # Define parameters
 n = 100  # Number of neurons

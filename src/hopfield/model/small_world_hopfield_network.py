@@ -64,3 +64,6 @@ class SmallWorldHopfieldNet(torch.nn.Module):
                     
         # Apply connections to weight matrix
         self.W *= torch.from_numpy(lattice).float()
+    
+    def recall(self, x):
+        return self(x)
