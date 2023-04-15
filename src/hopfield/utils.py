@@ -1,5 +1,6 @@
 import numpy as np
 from random import randint
+import matplotlib.pyplot as plt
 
 def hamming_distance(x, y):
     return np.sum(x, y)
@@ -48,3 +49,13 @@ def cnt_patterns_present(patterns, memories):
 
 def cnt_pattern_matches(pats_1, pats_2):
     return sum([ is_pattern_match(p_1, p_2) for (p_1, p_2) in zip(pats_1, pats_2)])
+
+
+def plot_network_performance(num_memories_list, mean_recall_rates, std_recall_rates, label):
+    # Plot results
+    plt.errorbar(num_memories_list, mean_recall_rates, std_recall_rates, label = label)
+    # Add plot labels
+    plt.xlabel('Num of memories')
+    plt.ylabel('Recall rate')
+    plt.title(f'Hopfield network performance (recall {label})')
+    plt.legend()
